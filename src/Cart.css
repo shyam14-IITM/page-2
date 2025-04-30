@@ -1,0 +1,40 @@
+.Cart{
+    margin:;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    justify-content: space-between;
+    background-color: white;
+    width: 100%;
+}
+.Cart .Product{
+    width: 60vw;
+    margin:20px;
+}
+.Cart .summary{
+    background-color: #292929;
+    width: 80%;
+    margin-left: 20px;
+    border-radius: 20px;
+    min-height:;
+    padding: 10px 20px 20px 1%;
+    color:white;   position: relative; 
+}
+.Cart .summary .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    margin:20px 10px;
+}
+.Cart .summary h4{
+    top:10px;
+    left:20px;
+    margin-bottom: 50px;
+    position: absolute;
+    
+}
+.Cart .summary div{
+ 
+    margin: 10px 0px;
+   
+}

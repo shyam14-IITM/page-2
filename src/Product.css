@@ -1,0 +1,86 @@
+:root{
+    --x:0;
+    --y:0;
+}
+
+
+.Product{
+    /* height: 300px; */
+    width: 100%;
+    background-color: #22222200;
+    position: relative;
+    /* background: url(https://m.media-amazon.com/images/I/41PyrPVopWL._AC_.jpg); */
+    background-size: contain;
+    background-repeat:no-repeat;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    transition: border 0.8s ease;
+    border:2px solid rgba(142, 142, 142, 0.463);
+    border-radius: 10px;
+    gap:10px;
+    
+
+}
+/* .Product::before{
+    content: "";
+    width: 300px;
+    height: 304px;
+    position: absolute;
+    z-index:1;
+    opacity: 0;
+    background: radial-gradient(circle farthest-side at var(--x) var(--y) , #ffffff,#4f4f4f);
+}
+.Product:hover::before{
+    opacity: 0.1;
+   
+} */
+.Product:hover{
+    border: 3px solid skyblue; color:white;
+    
+}
+.Product button{
+    
+    font-size: 20px;
+    margin:0px 5px 0px 10px;
+    bottom:0px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    &:active{
+        transform: scale(0.9);
+        border:2px solid rgb(187, 87, 187);
+    }
+}
+.Product .inc-btn{
+    
+}
+.Product .item-info{
+    width: 50%;
+    padding: 20px;
+    
+    color:rgb(6, 6, 6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    
+
+}
+.Product img{
+    width: 300px;
+    transition: all 0.6s ease;
+    
+}
+.Product:hover img{
+    transform: scale(1.05);
+}
+.Shop .Product button{
+    position: absolute;
+    right: 30px;
+    bottom: 60px;
+}
+.Product .price{
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+
