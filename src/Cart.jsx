@@ -1,16 +1,29 @@
-import { useContext } from "react"; import { ItemContext } from "./ItemContext";
+import {useState,useEffect, useContext, createRef } from "react"; import { ItemContext } from "./ItemContext";
 import Product from "./Product";
 import "./Cart.css"
 
 const Cart = () => {
+    const [total, setTotal] = useState(0);
+  
+    
     const { items, setItems, cartItems, setCartItems } = useContext(ItemContext);
+     useEffect(function getTotal(){
+        let sum=0;
+        for (let i = 0; i < cartItems.length; i++) {
+        sum=sum+cartItems[i].price * cartItems[i].quantity;
+        
+        }
+        setTotal(sum);
+        
+    },[cartItems])
+    
     return (
         <div className="Cart">
             <div>
                 {
 
                     cartItems.map((cartItem) => {
-                        return <Product key={cartItem.id} location={"Cart"} quantity={cartItem.quantity} name={cartItem.name} id={cartItem.id}>   </Product>
+                        return <Product key={cartItem.id} location={"Cart"} quantity={cartItem.quantity} name={cartItem.name} id={cartItem.id} price={cartItem.price}>   </Product>
                     })
                 }
             </div>
@@ -22,10 +35,10 @@ const Cart = () => {
                         cartItems.map((item, idx) => {
                             return <>
                                 <div>
-                                    {item.name}
+                                    {item.name} 
                                 </div>
                                 <div>
-                                    499 INR
+                                    {item.price} INR x {item.quantity}
                                 </div>
 
 
@@ -37,7 +50,8 @@ const Cart = () => {
                         Total
                     </div>
                     <div className="total-value">
-                        
+                        {
+                            total                    } INR
                     </div>
                     </div>
                     

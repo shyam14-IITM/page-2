@@ -10,7 +10,7 @@ import Cart from './Cart';
 function App() {
 
 const[cartItems,setCartItems]=useState([]) // items in the cart
-const[items,setItems]=useState([{name:"Roundneck", id:uuidv4()}, {name:"Polo", id:uuidv4()}]); // items in the shop
+const[items,setItems]=useState([{name:"Roundneck", id:uuidv4(), price:499}, {name:"Polo", id:uuidv4(), price:599}, {name:"Cap",id:uuidv4(),price:299}]); // items in the shop
   return (
     <>
     

@@ -84,3 +84,15 @@
     bottom: 20px;
 }
 
+@media(max-width:500px){
+    .Product img{
+        width:200px;
+    }
+   
+}
+@media(max-width:600px){
+    
+    .Product{
+        width: 100%;
+    }
+}

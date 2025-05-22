@@ -6,4 +6,11 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap:20px;
+    overflow: hidden;
+}
+@media(max-width:600px){
+    
+    .Products{
+        margin:0;
+    }
 }

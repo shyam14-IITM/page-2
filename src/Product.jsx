@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./Product.css"
 import { useContext } from "react";import { ItemContext } from "./ItemContext";
 
-const Product = ({name,id, location,quantity}) => {
 
-    // const [x, setX] = useState(0);
+
+const Product = ({name,id, location,quantity, price}) => {
+
+    // const [x, setX] = useState(0);  for a styling effect...
     // const [y, setY] = useState(0);
 
     // const handleMouseMove=(e)=>{
@@ -19,27 +21,49 @@ const Product = ({name,id, location,quantity}) => {
     
    const {items,setItems,cartItems,setCartItems}=useContext(ItemContext); // getting the items in shop and cart
 
-   // adding to cart functiom
-   const handleAdd=(name,id)=>{ 
+   // adding to cart  
+   const handleAdd=(name,id,price)=>{ 
    
     if(cartItems.length==0){                // if cart is empty
-        cartItems.push({name:name,id:id,quantity:1}); //push the item in cart
-        
+        cartItems.push({name:name,id:id,quantity:1,price:price}); //push the item in cart
+          let msg=document.querySelector(".Message");
+        msg.style.opacity=1;
+        setTimeout(()=>{
+            msg.style.opacity=0;
+             setTimeout(()=>{
+                msg.style.display="none";
+            
+             },200)
+        },1200)
     }
     else{
         for(let i=0;i<cartItems.length;i++){ // in non-empty cart, see if the clicked item is present or not 
             if(cartItems[i].id===id){
-                let nArr=[...cartItems];        
-                nArr[i].quantity=nArr[i].quantity+1;// if yes, then update quantity
-                setCartItems(nArr);
+                let newArr=[...cartItems];        
+                newArr[i].quantity=newArr[i].quantity+1;// if yes, then update quantity
+                setCartItems(newArr);
                 break;
             }
             else if (i===cartItems.length-1){
                 let newArr=[...cartItems];
-                newArr.push({name:name,id:id,quantity:1});// if no, then push the item
+                newArr.push({name:name,id:id,quantity:1, price:price});// if no, then push the item
                 setCartItems(newArr);
             }
         };
+        let msg=document.querySelector(".Message");
+        msg.style.display="block"
+        msg.style.opacity=1;
+        
+        
+
+        setTimeout(()=>{
+             msg.style.opacity=0;
+             setTimeout(()=>{
+                msg.style.display="none";
+            
+             },200)
+            
+        },1500)
         // cartItems.push({name:name,id:id,quantity:0});
         
    }    
@@ -81,25 +105,28 @@ const Product = ({name,id, location,quantity}) => {
         // } 
         className="Product">
             <div className="item-img">
-                <img src="item-img.png" alt="" />
+                {name=="Cap"? <img src="Cap.jpg"></img>:<img src="item-img.png" alt="" />}
+                
             </div>
             <div className="item-info">
-               <div>{name}  </div> 
+               <div>{name} <br />
+               Material: Cotton <br />
+               Size: M  </div> 
                { location=="Cart" &&<div> Quantity: { quantity} </div>}  
                  <div>
                     
                     {/* for display in Shop */}
-                    {location=="Shop" && <button onClick={()=>{console.log(id);handleAdd(name,id)}}> Add to Cart </button>}   
+                    {location=="Shop" && <button onClick={()=>{console.log(id);handleAdd(name,id,price)}}> Add to Cart </button>}   
                     {/* for display in Cart */}
-                    {location=="Cart" && <div className="inc-btn"> <button onClick={()=>{handleRemove(name,id)}}> - </button> <button onClick={()=>{console.log(id);handleAdd(name,id)}}>+ </button> </div>}
+                    {location=="Cart" && <div className="inc-btn"> <button onClick={()=>{handleRemove(name,id)}}> - </button> <button onClick={()=>{console.log(id);handleAdd(name,id,price)}}>+ </button> </div>}
 
                  </div>
                  <div className="price">
-                    499 INR
+                    {price} INR
                  </div>
                  
             </div>
-            
+           
        
         </div>
     );
