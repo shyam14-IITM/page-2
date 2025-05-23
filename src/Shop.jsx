@@ -15,6 +15,8 @@ const Shop = () => {
     },[isDark])
     return ( // rendering the products in shop
         <div className="Shop"> 
+        <br />
+        &nbsp;&nbsp;&nbsp; Features:  &nbsp;&nbsp;&nbsp; adding,&nbsp;  removing,&nbsp;  changing quantity,&nbsp;  total calculation,&nbsp;  dark mode
             <Products items={items}></Products>  
         </div>
      );

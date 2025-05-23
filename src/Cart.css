@@ -1,5 +1,5 @@
 .Cart{
-    margin:;
+    
     padding: 50px;
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +17,7 @@
     width: 60vw;
     margin-left: 20px;
     border-radius: 20px;
-    min-height:;
+   
     padding: 10px 20px 20px 1%;
     color:white;   position: relative; 
 }

@@ -28,7 +28,7 @@ const Product = ({name,id, location,quantity, price,img}) => {
         cartItems.push({name:name,id:id,quantity:1,price:price,img:img}); //push the item in cart
          
         
-        let msg=document.querySelector(".Message");
+        let msg=document.querySelector(".Message"); // to display message
         msg.style.opacity=1;
         setTimeout(()=>{
             msg.style.opacity=0;
@@ -52,13 +52,12 @@ const Product = ({name,id, location,quantity, price,img}) => {
                 setCartItems(newArr);
             }
         };
-        let msg=document.querySelector(".Message");
+
+
+        let msg=document.querySelector(".Message");// to display message
         msg.style.display="block"
         msg.style.opacity=1;
-        
-        
-
-        setTimeout(()=>{
+            setTimeout(()=>{
              msg.style.opacity=0;
              setTimeout(()=>{
                 msg.style.display="none";
@@ -66,12 +65,12 @@ const Product = ({name,id, location,quantity, price,img}) => {
              },200)
             
         },1500)
-        // cartItems.push({name:name,id:id,quantity:0});
+        
         
    }    
 
 }
-  const handleRemove=(name,id)=>{ //function to remove items
+  const handleRemove=(name,id)=>{  //function to remove items
     let item=null;
     console.log(id);
     for (let i = 0; i < cartItems.length; i++) {
@@ -100,11 +99,7 @@ const Product = ({name,id, location,quantity, price,img}) => {
     
     return (  
         <div
-        //  onMouseMove={(e)=>{
-        //     handleMouseMove(e);
-        // }
-            
-        // } 
+       
         className= {isDark?"dark Product":"Product"}>
             <div className="item-img">
                 <img src={img} alt="" />
