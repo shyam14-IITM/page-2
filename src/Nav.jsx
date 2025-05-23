@@ -5,7 +5,10 @@ const Nav = ({isDark, setIsDark}) => {
     return ( 
         <div className="Nav">
             <Link to="/"   className="logo">
-                Shaastra
+            <div id='title'>
+                <img id="logo" src="logo.png" alt="" /> Shaastra
+            </div>
+                
             </Link>
            
                 <input className="search" type="text" placeholder='Search for Products'/>

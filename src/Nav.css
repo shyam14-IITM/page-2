@@ -21,7 +21,14 @@ html,body{
     border: 2px solid purple;
     
 }
-
+.Nav #title{
+    display: flex;
+    gap:5px;
+    align-items:center;
+}
+.Nav #logo{
+    width: 40px;
+}
 .Nav input{
     height: 40px;
     width: 40%;
@@ -88,6 +95,18 @@ html,body{
         display:block;
         filter: invert();
        width:25px;
+    }
+}
+
+@media (max-width:420px){
+    .Nav{
+        padding-left:8px ;
+    }
+    .Nav #title{
+        font-size: 15px;
+    }
+    .Nav #logo{
+        width:25px;
     }
 }
 
