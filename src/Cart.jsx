@@ -3,10 +3,18 @@ import Product from "./Product";
 import "./Cart.css"
 
 const Cart = () => {
+     const { isDark,items, setItems, cartItems, setCartItems } = useContext(ItemContext);
     const [total, setTotal] = useState(0);
-  
+  useEffect(()=>{  
+      
+      let cart=document.querySelector(".Cart");
+      
+     
+      cart.style.backgroundColor= isDark?"black":"";
     
-    const { items, setItems, cartItems, setCartItems } = useContext(ItemContext);
+    },[isDark])
+    
+   
      useEffect(function getTotal(){
         let sum=0;
         for (let i = 0; i < cartItems.length; i++) {
@@ -23,7 +31,7 @@ const Cart = () => {
                 {
 
                     cartItems.map((cartItem) => {
-                        return <Product key={cartItem.id} location={"Cart"} quantity={cartItem.quantity} name={cartItem.name} id={cartItem.id} price={cartItem.price}>   </Product>
+                        return <Product key={cartItem.id} location={"Cart"} quantity={cartItem.quantity} name={cartItem.name} id={cartItem.id} price={cartItem.price} img={cartItem.img}>   </Product>
                     })
                 }
             </div>

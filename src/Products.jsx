@@ -9,7 +9,7 @@ const Products = ({items}) => {
         <div className="Products">
             {
                 items.map((item,idx)=>{
-                    return <Product location = {"Shop"} name={item.name} id={item.id} key={item.id} price={item.price}></Product>
+                    return <Product location = {"Shop"} name={item.name} id={item.id} key={item.id} price={item.price} img={item.img}></Product>
                 })
             }
              <Message></Message>

@@ -36,7 +36,7 @@
    
 } */
 .Product:hover{
-    border: 3px solid skyblue; color:white;
+    border: 2px solid skyblue; color:white;
     
 }
 .Product button{
@@ -45,10 +45,12 @@
     margin:0px 5px 0px 10px;
     bottom:0px;
     z-index: 2;
-    transition: all 0.3s ease;
+    transition: all 0.1s linear;
     &:active{
         transform: scale(0.9);
-        border:2px solid rgb(187, 87, 187);
+        background-color:rgb(187, 87, 187);
+        color: white;
+        border:3px solid rgb(187, 87, 187);
     }
 }
 .Product .inc-btn{
@@ -87,12 +89,18 @@
 @media(max-width:500px){
     .Product img{
         width:200px;
-    }
+        
    
-}
+}}
 @media(max-width:600px){
     
     .Product{
         width: 100%;
     }
+}
+.dark{
+    border:2px solid purple;
+}
+.dark .item-info{ 
+    color:white;
 }

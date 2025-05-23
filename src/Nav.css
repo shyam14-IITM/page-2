@@ -30,7 +30,7 @@ html,body{
     border-radius: 6px;
     margin-top: 10px;
 }
-.Nav img{
+.Nav #search-icon{
     display: none;
 }
 .Nav .nav-item-cont{
@@ -58,6 +58,14 @@ html,body{
     margin-right: 10px;
 
 }
+.Nav .theme-item{
+    font-size: 0.7rem;
+}
+.Nav #theme{
+    height:20px;
+    filter: invert();
+
+}
 @media(max-width:640px){
     
     .Nav{
@@ -76,7 +84,7 @@ html,body{
         display:none;
     }
     
-    .Nav img{
+    .Nav #search-icon{
         display:block;
         filter: invert();
        width:25px;

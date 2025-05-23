@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = ({isDark, setIsDark}) => {
     return ( 
         <div className="Nav">
             <Link to="/"   className="logo">
-                ShaastraKart
+                Shaastra
             </Link>
            
                 <input className="search" type="text" placeholder='Search for Products'/>
-                <img src="search-line.svg" alt="" />
+                <img id='search-icon' src="search-line.svg" alt="" />
             <div className='nav-item-cont'>
                 <div className="nav-item">Account</div>
                 <Link to="/cart" className="nav-item" > Cart </Link>
-                <div className="nav-item">Options</div> 
+                <div className="nav-item">Options</div>
+                 <div className='nav-item theme-item' onClick={()=>{setIsDark(!isDark)}}> <img id="theme" src={isDark?"moon-fill.svg":"sun-fill.svg"} alt="" /></div>
             </div>
         </div>
      );

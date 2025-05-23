@@ -4,7 +4,7 @@ import { useContext } from "react";import { ItemContext } from "./ItemContext";
 
 
 
-const Product = ({name,id, location,quantity, price}) => {
+const Product = ({name,id, location,quantity, price,img}) => {
 
     // const [x, setX] = useState(0);  for a styling effect...
     // const [y, setY] = useState(0);
@@ -19,14 +19,16 @@ const Product = ({name,id, location,quantity, price}) => {
     //     target.style.setProperty("--y",`${y}px`);
     // }
     
-   const {items,setItems,cartItems,setCartItems}=useContext(ItemContext); // getting the items in shop and cart
+   const {isDark,items,setItems,cartItems,setCartItems}=useContext(ItemContext); // getting the items in shop and cart
 
    // adding to cart  
    const handleAdd=(name,id,price)=>{ 
    
     if(cartItems.length==0){                // if cart is empty
-        cartItems.push({name:name,id:id,quantity:1,price:price}); //push the item in cart
-          let msg=document.querySelector(".Message");
+        cartItems.push({name:name,id:id,quantity:1,price:price,img:img}); //push the item in cart
+         
+        
+        let msg=document.querySelector(".Message");
         msg.style.opacity=1;
         setTimeout(()=>{
             msg.style.opacity=0;
@@ -46,7 +48,7 @@ const Product = ({name,id, location,quantity, price}) => {
             }
             else if (i===cartItems.length-1){
                 let newArr=[...cartItems];
-                newArr.push({name:name,id:id,quantity:1, price:price});// if no, then push the item
+                newArr.push({name:name,id:id,quantity:1, price:price,img:img});// if no, then push the item
                 setCartItems(newArr);
             }
         };
@@ -103,9 +105,9 @@ const Product = ({name,id, location,quantity, price}) => {
         // }
             
         // } 
-        className="Product">
+        className= {isDark?"dark Product":"Product"}>
             <div className="item-img">
-                {name=="Cap"? <img src="Cap.jpg"></img>:<img src="item-img.png" alt="" />}
+                <img src={img} alt="" />
                 
             </div>
             <div className="item-info">
